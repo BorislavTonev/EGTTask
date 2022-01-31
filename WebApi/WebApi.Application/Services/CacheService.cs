@@ -36,10 +36,6 @@ namespace WebApi.Application.Services
                 };
 
                 var asString = JsonConvert.SerializeObject(items.RedisValue);
-                //var temp = Encoding.Unicode.GetBytes(asString);
-
-                //var temp3 = Encoding.UTF8.GetString(temp);
-                //var temp4 = JsonConvert.DeserializeObject<List<Item>>(temp3);
 
                 await _cache.SetStringAsync(items.RedisKey, asString);
 
