@@ -40,7 +40,7 @@ namespace WorkerApp
                         h.Username("guest");
                         h.Password("guest");
                     });
-                    cur.ReceiveEndpoint("orderQueueasda", oq =>
+                    cur.ReceiveEndpoint("workerQueue", oq =>
                     {
                         oq.PrefetchCount = 20;
                        
