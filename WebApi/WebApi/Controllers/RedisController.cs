@@ -47,7 +47,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                Uri uri = new Uri("rabbitmq://localhost/orderQueueasda");
+                Uri uri = new Uri("rabbitmq://localhost/workerQueue");
                 var endPoint = await _busService.GetSendEndpoint(uri);
 
                 await endPoint.Send(new NotifyItem { CacheKey =cacheKey});
@@ -67,13 +67,6 @@ namespace WebApi.Controllers
             try
             {
                 var result = await _itemsService.AddItemsAsync(itemData);
-                if (result)
-                {
-                    //Uri uri = new Uri("rabbitmq://localhost/vhost1/exchange1?bind=true&queue=queue1");
-                    Uri uri = new Uri("rabbitmq://localhost/orderQueueasda");
-                    var endPoint = await _busService.GetSendEndpoint(uri);                 
-                    await endPoint.Send(itemData);
-                }
              
                 return Ok(result);
             }
