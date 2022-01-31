@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "115da415-6728-4a43-b3cd-dc7c920ef30e",
+		"name": "WebApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5003/Redis/NotifyWorker?cacheKey=myList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5003/Redis/NotifyWorker?cacheKey=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"Redis",
+						"NotifyWorker"
+					],
+					"query": [
+						{
+							"key": "cacheKey",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5003/Redis/AddItemsAsync",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"RedisKey\" : \"myList\",       \r\n        \"RedisValue\" :\r\n        [\r\n            {\r\n                \"ItemName\" : \"12\",\r\n                \"Description\" : \"test12\"\r\n            },\r\n            {\r\n                \"ItemName\" : \"13\",\r\n                \"Description\" : \"test13\"\r\n            }\r\n        ]\r\n\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5003/Redis/AddItemsAsync",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"Redis",
+						"AddItemsAsync"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5003/Redis/GetItemAsync?cacheKey=myList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5003/Redis/GetItemAsync?cacheKey=myList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"Redis",
+						"GetItemAsync"
+					],
+					"query": [
+						{
+							"key": "cacheKey",
+							"value": "myList"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
